@@ -2,6 +2,4 @@
 
 namespace Luminarix\Skeleton;
 
-class Skeleton
-{
-}
+class Skeleton {}

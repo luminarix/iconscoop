@@ -30,12 +30,12 @@ function writeln(string $line): void
 
 function run(string $command): string
 {
-    return trim((string)shell_exec($command));
+    return mb_trim((string)shell_exec($command));
 }
 
 function slugify(string $subject): string
 {
-    return mb_strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $subject), '-'));
+    return mb_strtolower(mb_trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $subject), '-'));
 }
 
 function title_case(string $subject): string
