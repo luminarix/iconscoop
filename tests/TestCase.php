@@ -1,9 +1,9 @@
 <?php
 
-namespace Luminarix\Skeleton\Tests;
+namespace Luminarix\IconScoop\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Luminarix\Skeleton\SkeletonServiceProvider;
+use Luminarix\IconScoop\IconScoopServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Luminarix\\Skeleton\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Luminarix\\IconScoop\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            IconScoopServiceProvider::class,
         ];
     }
 }

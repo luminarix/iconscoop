@@ -1,12 +1,11 @@
 <?php
 
-namespace Luminarix\Skeleton;
+namespace Luminarix\IconScoop;
 
-use Luminarix\Skeleton\Commands\SkeletonCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class IconScoopServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +15,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->name('iconscoop')
+            ->hasConfigFile();
     }
 }
