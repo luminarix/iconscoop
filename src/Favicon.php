@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Luminarix\IconScoop;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Uri;
 use Stringable;
 
 final class Favicon implements Stringable
@@ -14,7 +15,11 @@ final class Favicon implements Stringable
         public ?string $contentLocation = null,
         public readonly int $statusCode = 200,
     ) {
-        $this->imageUrl ??= secure_asset('vendor/iconscoop/' . Config::string('iconscoop.default_icon'));
+        $this->imageUrl ??= Uri::of(Config::string('app.url'))
+            ->withScheme(Config::string('app.protocol'))
+            ->withPath('vendor/iconscoop/' . Config::string('iconscoop.default_icon'))
+            ->getUri()
+            ->toString();
         $this->contentLocation ??= $this->imageUrl;
     }
 
