@@ -16,7 +16,7 @@ final class Favicon implements Stringable
         public readonly int $statusCode = 200,
     ) {
         $this->imageUrl ??= Uri::of(Config::string('app.url'))
-            ->withScheme(Config::string('app.protocol'))
+            ->withScheme(Config::string('app.protocol', 'https'))
             ->withPath('vendor/iconscoop/' . Config::string('iconscoop.default_icon'))
             ->getUri()
             ->toString();
